@@ -20,8 +20,6 @@
 
 
 <img width="800" alt="Image" src="https://github.com/user-attachments/assets/cecd6c06-1cdf-4c7b-933a-3f08c624052d" /> </br> </br></br></br></br>
-<img width="800"  alt="Image" src="https://github.com/user-attachments/assets/52cedb6e-8776-4e69-a02b-bdfb6c385e28" /> </br> </br></br></br></br>
-<img width="800" alt="Image" src="https://github.com/user-attachments/assets/f03f6e8a-4811-476b-acbd-155eca6dd73f" /> </br></br></br></br></br>
 <img width="800" alt="Image" src="https://github.com/user-attachments/assets/cf4e57ab-1c43-4e71-a64f-b00195ef04d3" /> </br>
 *Sample Outputs of the predictive model.*
 
