@@ -5,46 +5,56 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-ps=PorterStemmer()
+stemmer = PorterStemmer()
 
-def transform_text(text):
-    text = text.lower()
-    text = nltk.word_tokenize(text)
 
-    y = []
-    for i in text:
-        if i.isalnum():
-            y.append(i)
+def preprocess_text(message):
+    # Convert to lowercase
+    message = message.lower()
+    tokens = nltk.word_tokenize(message)
 
-    text = y[:]
-    y.clear()
+    filtered_tokens = []
+    for token in tokens:
+        if token.isalnum():
+            filtered_tokens.append(token)
 
-    for i in text:
-        if i not in stopwords.words('english') and i not in string.punctuation:
-            y.append(i)
+    tokens = filtered_tokens[:]
+    filtered_tokens.clear()
 
-    text = y[:]
-    y.clear()
+    for token in tokens:
+        if token not in stopwords.words('english') and token not in string.punctuation:
+            filtered_tokens.append(token)
 
-    for i in text:
-        y.append(ps.stem(i))
+    tokens = filtered_tokens[:]
+    filtered_tokens.clear()
 
-    return " ".join(y)
+    for token in tokens:
+        filtered_tokens.append(stemmer.stem(token))
 
-tfidf=pickle.load(open('vectorizer.pkl','rb'))
-model=pickle.load(open('model.pkl','rb'))
+    return " ".join(filtered_tokens)
 
-st.title("Email/SMS Spam Classifier")
-input_sms=st.text_area("Enter the message")
+
+# Load vectorizer and model
+vectorizer = pickle.load(open('vectorizer.pkl', 'rb'))
+spam_classifier = pickle.load(open('model.pkl', 'rb'))
+
+# Streamlit UI
+st.title("Email/SMS Spam Detector")
+
+user_input = st.text_area("Type your message here")
+
 if st.button("Predict"):
-    # 1 preprocess
-    transformed_sms=transform_text(input_sms)
-    # 2 Vectorize
-    vector_input = tfidf.transform([transformed_sms])
-    # 3 Predict
-    result = model.predict(vector_input)[0]
-    # 4 Display
-    if result == 1:
+    # Step 1: Preprocess
+    cleaned_message = preprocess_text(user_input)
+
+    # Step 2: Vectorize
+    input_vector = vectorizer.transform([cleaned_message])
+
+    # Step 3: Prediction
+    prediction = spam_classifier.predict(input_vector)[0]
+
+    # Step 4: Output
+    if prediction == 1:
         st.subheader("Spam")
-    else :
+    else:
         st.subheader("Not Spam")
