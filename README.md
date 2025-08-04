@@ -1,33 +1,3 @@
-# MACHINE-LEARNING-MODEL-IMPLEMENTATION
-
-*COMPANY*: CODTECH IT SOLUTIONS
-
-*NAME*: TUSHAR SINGH
-
-*INTERN ID*: CT06DG16
-
-*DOMAIN*: PYTHON PROGRAMMING
-
-*DURATION*: 6 WEEKS
-
-*MENTOR*: NEELA SANTOSH
-
-</br>
-</br>
-</br>
-
-# Model Outputs
-
-
-<img width="800" alt="Image" src="https://github.com/user-attachments/assets/cecd6c06-1cdf-4c7b-933a-3f08c624052d" /> </br> </br></br></br></br>
-<img width="800" alt="Image" src="https://github.com/user-attachments/assets/cf4e57ab-1c43-4e71-a64f-b00195ef04d3" /> </br>
-*Sample Outputs of the predictive model.*
-
-</br>
-</br>
-</br>
-
-
 # 📧 Predictive Email/Spam Detection using Machine Learning
 
 This repository, titled **MACHINE-LEARNING-MODEL-IMPLEMENTATION**, contains a complete end-to-end machine learning project developed as part of a 6-week internship at **CodTech IT Solutions**. The project focuses on building and deploying an intelligent system for detecting **spam emails or messages** using **Natural Language Processing (NLP)** and **Streamlit**.
